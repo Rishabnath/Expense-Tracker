@@ -22,10 +22,10 @@ The first version has no account, server, cloud sync, PostgreSQL dependency, Fir
 Install the .NET MAUI Android workload, Android SDK, and a supported JDK, then run:
 
 ```powershell
-dotnet build -f net11.0-android -c Debug -p:AndroidPackageFormats=apk
+dotnet build -f net11.0-android -c Debug -p:AndroidPackageFormats=apk -p:EmbedAssembliesIntoApk=true
 ```
 
-The build output is under `bin/Debug/net11.0-android/`. A debug APK is intended for local installation and development, not store distribution.
+The build output is under `bin/Debug/net11.0-android/`. Embedding assemblies makes this Debug APK self-contained for direct installation; the default fast-deployment output is intended to be launched from the development tools. A debug APK is not intended for store distribution.
 
 ## Use notification capture and the widget
 
