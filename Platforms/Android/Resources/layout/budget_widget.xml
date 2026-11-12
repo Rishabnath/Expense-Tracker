@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#173B31">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPENDWISE  ·  THIS MONTH"
+        android:textColor="#B8D8C6"
+        android:textSize="11sp"
+        android:letterSpacing="0.08" />
+    <TextView
+        android:id="@+id/widget_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Set a budget"
+        android:textColor="#F4F5EB"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/widget_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="open Spendwise to get started"
+        android:textColor="#B8D8C6"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/widget_spent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your balance will show here"
+        android:textColor="#F4F5EB"
+        android:textSize="12sp" />
+</LinearLayout>
