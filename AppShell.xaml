@@ -1,0 +1,26 @@
+<Shell
+    x:Class="ExpenseTracker.AppShell"
+    xmlns:ui="clr-namespace:ExpenseTracker.Ui"
+    Title="ExpenseTracker">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate ui:DashboardPage}"
+        Route="home" />
+
+    <ShellContent
+        Title="Activity"
+        ContentTemplate="{DataTemplate ui:TransactionsPage}"
+        Route="transactions" />
+
+    <ShellContent
+        Title="Insights"
+        ContentTemplate="{DataTemplate ui:InsightsPage}"
+        Route="insights" />
+
+    <ShellContent
+        Title="Settings"
+        ContentTemplate="{DataTemplate ui:SettingsPage}"
+        Route="settings" />
+
+</Shell>
