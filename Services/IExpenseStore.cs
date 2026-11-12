@@ -14,3 +14,10 @@ public interface IExpenseStore
     void Update(ExpenseRecord record);
     void Delete(long id);
 }
+
+public static class ExpenseStoreEvents
+{
+    public static event EventHandler? Changed;
+
+    public static void NotifyChanged() => Changed?.Invoke(null, EventArgs.Empty);
+}

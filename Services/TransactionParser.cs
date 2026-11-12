@@ -21,7 +21,7 @@ public static partial class TransactionParser
         if (combined.Length == 0) return false;
 
         var lower = combined.ToLowerInvariant();
-        if (!Regex.IsMatch(lower, @"\b(debited|paid|payment|purchase|spent|sent|txn|transaction)\b", RegexOptions.CultureInvariant)) return false;
+        if (!Regex.IsMatch(lower, @"\b(debited|debit|dr|paid|payment|purchase|spent|sent|txn|transaction)\b", RegexOptions.CultureInvariant)) return false;
         if (Regex.IsMatch(lower, @"\b(credited|received|refund|cashback|reversed|failed|declined)\b", RegexOptions.CultureInvariant)) return false;
 
         var match = AmountRegex().Match(combined);

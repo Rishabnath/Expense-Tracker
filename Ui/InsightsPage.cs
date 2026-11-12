@@ -1,5 +1,6 @@
 using ExpenseTracker.Models;
 using ExpenseTracker.Services;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ExpenseTracker.Ui;
 
@@ -35,7 +36,21 @@ public sealed class InsightsPage : ContentPage
         Content = new ScrollView { Content = root };
     }
 
-    protected override void OnAppearing() { base.OnAppearing(); Refresh(); }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        ExpenseStoreEvents.Changed -= OnExpenseStoreChanged;
+        ExpenseStoreEvents.Changed += OnExpenseStoreChanged;
+        Refresh();
+    }
+
+    protected override void OnDisappearing()
+    {
+        ExpenseStoreEvents.Changed -= OnExpenseStoreChanged;
+        base.OnDisappearing();
+    }
+
+    private void OnExpenseStoreChanged(object? sender, EventArgs e) => MainThread.BeginInvokeOnMainThread(Refresh);
 
     private void Refresh()
     {

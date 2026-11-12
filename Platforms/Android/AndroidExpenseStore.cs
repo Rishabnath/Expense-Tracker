@@ -21,6 +21,7 @@ public sealed class AndroidExpenseStore : IExpenseStore
     {
         _database.SetBudget(amount);
         BudgetWidgetProvider.Refresh(Platform.AppContext);
+        ExpenseStoreEvents.NotifyChanged();
     }
 
     public decimal GetMonthSpend(DateTime month) => _database.GetMonthSpend(month);
@@ -31,7 +32,11 @@ public sealed class AndroidExpenseStore : IExpenseStore
     public bool Add(ExpenseRecord record)
     {
         var added = _database.Add(record);
-        if (added) BudgetWidgetProvider.Refresh(Platform.AppContext);
+        if (added)
+        {
+            BudgetWidgetProvider.Refresh(Platform.AppContext);
+            ExpenseStoreEvents.NotifyChanged();
+        }
         return added;
     }
 
@@ -39,12 +44,14 @@ public sealed class AndroidExpenseStore : IExpenseStore
     {
         _database.Update(record);
         BudgetWidgetProvider.Refresh(Platform.AppContext);
+        ExpenseStoreEvents.NotifyChanged();
     }
 
     public void Delete(long id)
     {
         _database.Delete(id);
         BudgetWidgetProvider.Refresh(Platform.AppContext);
+        ExpenseStoreEvents.NotifyChanged();
     }
 }
 
